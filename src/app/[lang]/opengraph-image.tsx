@@ -1,5 +1,6 @@
 import { ImageResponse } from "next/og";
 
+export const dynamic = "force-static";
 export const size = { width: 1200, height: 630 };
 export const contentType = "image/png";
 
@@ -13,6 +14,10 @@ const content: Record<string, { title: string; subtitle: string }> = {
     subtitle: "SNS文字数カウンター（ライブプレビュー付き）",
   },
 };
+
+export function generateStaticParams() {
+  return [{ lang: "en" }, { lang: "ja" }];
+}
 
 export default async function OGImage({
   params,
