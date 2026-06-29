@@ -40,6 +40,11 @@
   "footer": {
     "text": "PostLen — 無料SNS文字数カウンター（ライブプレビュー付き）"
   },
+  "consent": {
+    "message": "サイトの利用状況を分析し、体験を向上させるためにCookieを使用しています。",
+    "accept": "同意する",
+    "decline": "拒否する"
+  },
   "lang": {
     "switch": "English"
   }

@@ -7,6 +7,7 @@ import { useDictionary } from "@/lib/i18n";
 import { PlatformCard } from "./PlatformCard";
 import { ImageUpload } from "./ImageUpload";
 import { Preview } from "./Preview";
+import { AdUnit } from "./AdUnit";
 
 export function PostLenApp({ lang }: { lang: string }) {
   const dict = useDictionary();
@@ -108,6 +109,8 @@ export function PostLenApp({ lang }: { lang: string }) {
           </div>
         </div>
       </main>
+
+      <AdUnit slot="POSTLEN_BOTTOM" className="mx-auto max-w-5xl px-4 mt-12" />
 
       <footer className="mt-16 border-t border-zinc-200 dark:border-zinc-800 py-6">
         <div className="mx-auto max-w-5xl px-4 text-center text-xs text-zinc-400">

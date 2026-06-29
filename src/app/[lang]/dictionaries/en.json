@@ -40,6 +40,11 @@
   "footer": {
     "text": "PostLen — Free SNS character counter with live preview"
   },
+  "consent": {
+    "message": "We use cookies to analyze site usage and improve your experience.",
+    "accept": "Accept",
+    "decline": "Decline"
+  },
   "lang": {
     "switch": "日本語"
   }
