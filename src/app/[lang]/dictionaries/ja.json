@@ -1,0 +1,46 @@
+{
+  "meta": {
+    "title": "PostLen — SNS文字数カウンター（ライブプレビュー付き）",
+    "description": "X (Twitter)、Instagram、LinkedIn、Threads、YouTube、TikTok、メタディスクリプションの無料文字数カウンター。投稿前に実際の見た目を確認できます。"
+  },
+  "header": {
+    "subtitle": "SNS文字数カウンター"
+  },
+  "editor": {
+    "placeholder": "テキストを入力またはペースト...",
+    "characters": "文字",
+    "clearAll": "すべてクリア"
+  },
+  "images": {
+    "dropzone": "画像をドロップまたはクリックしてアップロード（最大4枚）",
+    "addMore": "画像を追加",
+    "remaining": "枚",
+    "clear": "クリア"
+  },
+  "sections": {
+    "platforms": "プラットフォーム",
+    "preview": "プレビュー"
+  },
+  "preview": {
+    "yourName": "あなたの名前",
+    "username": "username",
+    "now": "たった今",
+    "headline": "肩書き",
+    "timeAgo": "1分前",
+    "xPlaceholder": "テキストを入力するとプレビューが表示されます...",
+    "instagramPlaceholder": "キャプションがここに表示されます...",
+    "linkedinPlaceholder": "LinkedIn投稿がここに表示されます...",
+    "threadsPlaceholder": "Threads投稿がここに表示されます...",
+    "genericPlaceholder": "{platform}のコンテンツがここに表示されます...",
+    "previewLabel": "{platform}プレビュー"
+  },
+  "extras": {
+    "hashtags": "ハッシュタグ"
+  },
+  "footer": {
+    "text": "PostLen — 無料SNS文字数カウンター（ライブプレビュー付き）"
+  },
+  "lang": {
+    "switch": "English"
+  }
+}

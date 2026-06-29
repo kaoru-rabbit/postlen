@@ -1,0 +1,46 @@
+{
+  "meta": {
+    "title": "PostLen — SNS Character Counter with Live Preview",
+    "description": "Free character counter for X (Twitter), Instagram, LinkedIn, Threads, YouTube, TikTok, and meta descriptions. See exactly how your post will look before publishing."
+  },
+  "header": {
+    "subtitle": "SNS Character Counter"
+  },
+  "editor": {
+    "placeholder": "Type or paste your text here...",
+    "characters": "characters",
+    "clearAll": "Clear all"
+  },
+  "images": {
+    "dropzone": "Drop images here or click to upload (max 4)",
+    "addMore": "Add more images",
+    "remaining": "remaining",
+    "clear": "Clear"
+  },
+  "sections": {
+    "platforms": "Platforms",
+    "preview": "Preview"
+  },
+  "preview": {
+    "yourName": "Your Name",
+    "username": "username",
+    "now": "now",
+    "headline": "Your headline",
+    "timeAgo": "1m",
+    "xPlaceholder": "Start typing to see your post preview...",
+    "instagramPlaceholder": "Your caption will appear here...",
+    "linkedinPlaceholder": "Your LinkedIn post will appear here...",
+    "threadsPlaceholder": "Your Threads post will appear here...",
+    "genericPlaceholder": "Your {platform} content will appear here...",
+    "previewLabel": "{platform} Preview"
+  },
+  "extras": {
+    "hashtags": "Hashtags"
+  },
+  "footer": {
+    "text": "PostLen — Free SNS character counter with live preview"
+  },
+  "lang": {
+    "switch": "日本語"
+  }
+}
