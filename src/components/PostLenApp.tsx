@@ -5,7 +5,7 @@ import Link from "next/link";
 import { platforms } from "@/lib/counters";
 import { useDictionary } from "@/lib/i18n";
 import { PlatformCard } from "./PlatformCard";
-import { ImageUpload } from "./ImageUpload";
+import { MediaUpload } from "./MediaUpload";
 import { Preview } from "./Preview";
 import { AdUnit } from "./AdUnit";
 
@@ -14,8 +14,13 @@ export function PostLenApp({ lang }: { lang: string }) {
   const [text, setText] = useState("");
   const [selectedPlatform, setSelectedPlatform] = useState("x");
   const [images, setImages] = useState<string[]>([]);
+  const [video, setVideo] = useState<string | null>(null);
 
   function handleImagesAdd(files: File[]) {
+    if (video) {
+      URL.revokeObjectURL(video);
+      setVideo(null);
+    }
     const newUrls = files.map((f) => URL.createObjectURL(f));
     setImages((prev) => [...prev, ...newUrls].slice(0, 4));
   }
@@ -27,12 +32,24 @@ export function PostLenApp({ lang }: { lang: string }) {
     });
   }
 
-  function handleImagesClear() {
+  function handleVideoAdd(file: File) {
     images.forEach((url) => URL.revokeObjectURL(url));
     setImages([]);
+    if (video) URL.revokeObjectURL(video);
+    setVideo(URL.createObjectURL(file));
+  }
+
+  function handleMediaClear() {
+    images.forEach((url) => URL.revokeObjectURL(url));
+    setImages([]);
+    if (video) {
+      URL.revokeObjectURL(video);
+      setVideo(null);
+    }
   }
 
   const otherLang = lang === "ja" ? "en" : "ja";
+  const hasMedia = images.length > 0 || video !== null;
 
   return (
     <div className="min-h-screen bg-white dark:bg-zinc-950">
@@ -64,9 +81,9 @@ export function PostLenApp({ lang }: { lang: string }) {
 
         <div className="mt-2 flex items-center justify-between text-xs text-zinc-500">
           <span>{text.length} {dict.editor.characters}</span>
-          {(text.length > 0 || images.length > 0) && (
+          {(text.length > 0 || hasMedia) && (
             <button
-              onClick={() => { setText(""); handleImagesClear(); }}
+              onClick={() => { setText(""); handleMediaClear(); }}
               className="hover:text-zinc-700 dark:hover:text-zinc-300"
             >
               {dict.editor.clearAll}
@@ -74,11 +91,13 @@ export function PostLenApp({ lang }: { lang: string }) {
           )}
         </div>
 
-        <ImageUpload
+        <MediaUpload
           images={images}
+          video={video}
           onImagesAdd={handleImagesAdd}
           onImageRemove={handleImageRemove}
-          onImagesClear={handleImagesClear}
+          onVideoAdd={handleVideoAdd}
+          onMediaClear={handleMediaClear}
         />
 
         <div className="mt-8 grid grid-cols-1 gap-8 lg:grid-cols-2">
@@ -104,7 +123,7 @@ export function PostLenApp({ lang }: { lang: string }) {
               {dict.sections.preview}
             </h2>
             <div className="sticky top-8">
-              <Preview text={text} images={images} platformId={selectedPlatform} />
+              <Preview text={text} images={images} video={video} platformId={selectedPlatform} />
             </div>
           </div>
         </div>

@@ -2,6 +2,18 @@ import type { Platform } from "@/lib/counters";
 import { platforms } from "@/lib/counters";
 import { useDictionary } from "@/lib/i18n";
 
+function VideoPlayer({ src, className }: { src: string; className?: string }) {
+  return (
+    <video
+      src={src}
+      controls
+      muted
+      playsInline
+      className={`w-full object-cover ${className ?? ""}`}
+    />
+  );
+}
+
 function ImageGrid1({ images }: { images: string[] }) {
   return (
     <div className="overflow-hidden rounded-2xl border border-zinc-200 dark:border-zinc-700">
@@ -147,8 +159,28 @@ function GenericImageGrid({ images }: { images: string[] }) {
   );
 }
 
-function XPreview({ text, images }: { text: string; images: string[] }) {
+type MediaProps = { text: string; images: string[]; video: string | null };
+
+function MediaBlock({ video, images, ImageGrid, videoClass }: {
+  video: string | null;
+  images: string[];
+  ImageGrid: React.ComponentType<{ images: string[] }>;
+  videoClass?: string;
+}) {
+  if (video) {
+    return (
+      <div className="overflow-hidden rounded-2xl border border-zinc-200 dark:border-zinc-700">
+        <VideoPlayer src={video} className={videoClass} />
+      </div>
+    );
+  }
+  if (images.length > 0) return <ImageGrid images={images} />;
+  return null;
+}
+
+function XPreview({ text, images, video }: MediaProps) {
   const dict = useDictionary();
+  const media = <MediaBlock video={video} images={images} ImageGrid={XImageGrid} className="aspect-video" />;
   return (
     <div className="rounded-xl border border-zinc-200 dark:border-zinc-700 p-4">
       <div className="flex gap-3">
@@ -163,19 +195,16 @@ function XPreview({ text, images }: { text: string; images: string[] }) {
           <p className="mt-1 text-[15px] leading-relaxed text-zinc-900 dark:text-zinc-100 whitespace-pre-wrap break-words">
             {text || dict.preview.xPlaceholder}
           </p>
-          {images.length > 0 && (
-            <div className="mt-3">
-              <XImageGrid images={images} />
-            </div>
-          )}
+          {media && <div className="mt-3">{media}</div>}
         </div>
       </div>
     </div>
   );
 }
 
-function InstagramPreview({ text, images }: { text: string; images: string[] }) {
+function InstagramPreview({ text, images, video }: MediaProps) {
   const dict = useDictionary();
+  const hasMedia = images.length > 0 || video;
   return (
     <div className="rounded-xl border border-zinc-200 dark:border-zinc-700 overflow-hidden">
       <div className="flex items-center gap-2.5 px-4 py-3">
@@ -184,7 +213,9 @@ function InstagramPreview({ text, images }: { text: string; images: string[] }) 
           {dict.preview.username}
         </span>
       </div>
-      {images.length > 0 ? (
+      {video ? (
+        <VideoPlayer src={video} className="aspect-square" />
+      ) : images.length > 0 ? (
         <InstagramCarousel images={images} />
       ) : (
         <div className="w-full aspect-square bg-zinc-200 dark:bg-zinc-700" />
@@ -199,7 +230,7 @@ function InstagramPreview({ text, images }: { text: string; images: string[] }) 
   );
 }
 
-function LinkedInPreview({ text, images }: { text: string; images: string[] }) {
+function LinkedInPreview({ text, images, video }: MediaProps) {
   const dict = useDictionary();
   return (
     <div className="rounded-xl border border-zinc-200 dark:border-zinc-700 p-4">
@@ -215,16 +246,20 @@ function LinkedInPreview({ text, images }: { text: string; images: string[] }) {
       <p className="text-sm leading-relaxed text-zinc-900 dark:text-zinc-100 whitespace-pre-wrap break-words">
         {text || dict.preview.linkedinPlaceholder}
       </p>
-      {images.length > 0 && (
+      {video ? (
+        <div className="-mx-4 -mb-4 mt-3 overflow-hidden rounded-b-xl">
+          <VideoPlayer src={video} className="aspect-video" />
+        </div>
+      ) : images.length > 0 ? (
         <div className="mt-3">
           <LinkedInImageGrid images={images} />
         </div>
-      )}
+      ) : null}
     </div>
   );
 }
 
-function ThreadsPreview({ text, images }: { text: string; images: string[] }) {
+function ThreadsPreview({ text, images, video }: MediaProps) {
   const dict = useDictionary();
   return (
     <div className="rounded-xl border border-zinc-200 dark:border-zinc-700 p-4">
@@ -240,11 +275,15 @@ function ThreadsPreview({ text, images }: { text: string; images: string[] }) {
           <p className="mt-1 text-sm leading-relaxed text-zinc-900 dark:text-zinc-100 whitespace-pre-wrap break-words">
             {text || dict.preview.threadsPlaceholder}
           </p>
-          {images.length > 0 && (
+          {video ? (
+            <div className="mt-2 overflow-hidden rounded-lg border border-zinc-200 dark:border-zinc-700">
+              <VideoPlayer src={video} className="aspect-[4/5]" />
+            </div>
+          ) : images.length > 0 ? (
             <div className="mt-2">
               <ThreadsImageGrid images={images} />
             </div>
-          )}
+          ) : null}
         </div>
       </div>
     </div>
@@ -254,12 +293,9 @@ function ThreadsPreview({ text, images }: { text: string; images: string[] }) {
 function GenericPreview({
   text,
   images,
+  video,
   platform,
-}: {
-  text: string;
-  images: string[];
-  platform: Platform;
-}) {
+}: MediaProps & { platform: Platform }) {
   const dict = useDictionary();
   return (
     <div className="rounded-xl border border-zinc-200 dark:border-zinc-700 p-4">
@@ -269,11 +305,15 @@ function GenericPreview({
       <p className="text-sm leading-relaxed text-zinc-900 dark:text-zinc-100 whitespace-pre-wrap break-words">
         {text || dict.preview.genericPlaceholder.replace("{platform}", platform.name)}
       </p>
-      {images.length > 0 && (
+      {video ? (
+        <div className="mt-3 overflow-hidden rounded-lg border border-zinc-200 dark:border-zinc-700">
+          <VideoPlayer src={video} className="aspect-video" />
+        </div>
+      ) : images.length > 0 ? (
         <div className="mt-3">
           <GenericImageGrid images={images} />
         </div>
-      )}
+      ) : null}
     </div>
   );
 }
@@ -281,23 +321,25 @@ function GenericPreview({
 export function Preview({
   text,
   images,
+  video,
   platformId,
 }: {
   text: string;
   images: string[];
+  video: string | null;
   platformId: string;
 }) {
   const platform = platforms.find((p) => p.id === platformId)!;
   switch (platformId) {
     case "x":
-      return <XPreview text={text} images={images} />;
+      return <XPreview text={text} images={images} video={video} />;
     case "instagram":
-      return <InstagramPreview text={text} images={images} />;
+      return <InstagramPreview text={text} images={images} video={video} />;
     case "linkedin":
-      return <LinkedInPreview text={text} images={images} />;
+      return <LinkedInPreview text={text} images={images} video={video} />;
     case "threads":
-      return <ThreadsPreview text={text} images={images} />;
+      return <ThreadsPreview text={text} images={images} video={video} />;
     default:
-      return <GenericPreview text={text} images={images} platform={platform} />;
+      return <GenericPreview text={text} images={images} video={video} platform={platform} />;
   }
 }

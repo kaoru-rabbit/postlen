@@ -17,6 +17,13 @@
     "remaining": "枚",
     "clear": "クリア"
   },
+  "media": {
+    "dropzone": "画像または動画をドロップ、またはクリックしてアップロード",
+    "addMore": "画像を追加",
+    "remaining": "枚",
+    "clear": "クリア",
+    "video": "動画"
+  },
   "sections": {
     "platforms": "プラットフォーム",
     "preview": "プレビュー"

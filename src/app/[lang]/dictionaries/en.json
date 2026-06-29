@@ -17,6 +17,13 @@
     "remaining": "remaining",
     "clear": "Clear"
   },
+  "media": {
+    "dropzone": "Drop images or video here, or click to upload",
+    "addMore": "Add more images",
+    "remaining": " remaining",
+    "clear": "Clear",
+    "video": "VIDEO"
+  },
   "sections": {
     "platforms": "Platforms",
     "preview": "Preview"
