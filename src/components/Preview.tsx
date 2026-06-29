@@ -180,7 +180,7 @@ function MediaBlock({ video, images, ImageGrid, videoClass }: {
 
 function XPreview({ text, images, video }: MediaProps) {
   const dict = useDictionary();
-  const media = <MediaBlock video={video} images={images} ImageGrid={XImageGrid} className="aspect-video" />;
+  const media = <MediaBlock video={video} images={images} ImageGrid={XImageGrid} videoClass="aspect-video" />;
   return (
     <div className="rounded-xl border border-zinc-200 dark:border-zinc-700 p-4">
       <div className="flex gap-3">
