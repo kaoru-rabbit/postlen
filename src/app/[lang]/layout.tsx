@@ -22,6 +22,7 @@ export async function generateMetadata({
   if (!hasLocale(lang)) return {};
   const dict = await getDictionary(lang as Locale);
   return {
+    metadataBase: new URL("https://postlen.app"),
     title: dict.meta.title,
     description: dict.meta.description,
     keywords: lang === "ja"
