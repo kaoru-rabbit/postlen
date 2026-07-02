@@ -54,5 +54,86 @@
   },
   "lang": {
     "switch": "日本語"
+  },
+  "legal": {
+    "backToApp": "Back to PostLen",
+    "privacy": {
+      "title": "Privacy Policy",
+      "lastUpdated": "Last updated: July 2026",
+      "intro": "PostLen (\"we\", \"us\", or \"our\") operates the website postlen.app. This page informs you of our policies regarding the collection, use, and disclosure of personal data when you use our Service.",
+      "sections": [
+        {
+          "heading": "Information We Collect",
+          "body": "PostLen is a client-side web application. All text you type and media you upload are processed entirely in your browser and are never sent to our servers. We do not collect, store, or transmit your post content."
+        },
+        {
+          "heading": "Cookies and Analytics",
+          "body": "With your consent, we use Google Analytics to collect anonymous usage data such as page views, device type, and approximate location. This helps us understand how the service is used and improve it. You can decline cookies via the consent banner. If you decline, no analytics data is collected."
+        },
+        {
+          "heading": "Advertising",
+          "body": "We use Google AdSense to display advertisements. AdSense may use cookies to serve ads based on your prior visits to this or other websites. You can opt out of personalized advertising by visiting Google's Ads Settings (https://adssettings.google.com)."
+        },
+        {
+          "heading": "Third-Party Services",
+          "body": "We use the following third-party services: Google Analytics (analytics), Google AdSense (advertising), and Cloudflare (hosting and CDN). Each service has its own privacy policy governing how it handles data."
+        },
+        {
+          "heading": "Data Retention",
+          "body": "Since we do not collect personal data through the application itself, there is no user data to retain. Analytics data is retained according to Google Analytics' default retention settings."
+        },
+        {
+          "heading": "Children's Privacy",
+          "body": "Our Service does not address anyone under the age of 13. We do not knowingly collect personally identifiable information from children under 13."
+        },
+        {
+          "heading": "Changes to This Policy",
+          "body": "We may update our Privacy Policy from time to time. We will notify you of any changes by posting the new Privacy Policy on this page and updating the \"Last updated\" date."
+        },
+        {
+          "heading": "Contact Us",
+          "body": "If you have any questions about this Privacy Policy, please contact us at postlen.app."
+        }
+      ]
+    },
+    "terms": {
+      "title": "Terms of Service",
+      "lastUpdated": "Last updated: July 2026",
+      "intro": "Please read these Terms of Service (\"Terms\") carefully before using the PostLen website (postlen.app) operated by PostLen (\"us\", \"we\", or \"our\").",
+      "sections": [
+        {
+          "heading": "Acceptance of Terms",
+          "body": "By accessing and using this Service, you accept and agree to be bound by these Terms. If you disagree with any part of the terms, you may not access the Service."
+        },
+        {
+          "heading": "Description of Service",
+          "body": "PostLen is a free web-based tool that counts characters for various social media platforms and provides a live preview of how your post will appear. All processing occurs in your browser."
+        },
+        {
+          "heading": "Use of Service",
+          "body": "You may use PostLen for any lawful purpose. You agree not to use the Service in any way that could damage, disable, or impair the Service or interfere with any other party's use of the Service."
+        },
+        {
+          "heading": "Intellectual Property",
+          "body": "The Service and its original content (excluding user-generated content) are and will remain the property of PostLen. The Service is protected by copyright and other laws."
+        },
+        {
+          "heading": "Disclaimer",
+          "body": "The Service is provided \"as is\" without warranties of any kind. Character counts and previews are approximations and may differ from actual platform behavior. We do not guarantee the accuracy of character counts or preview formatting."
+        },
+        {
+          "heading": "Limitation of Liability",
+          "body": "In no event shall PostLen be liable for any indirect, incidental, special, consequential, or punitive damages resulting from your use of the Service."
+        },
+        {
+          "heading": "Changes",
+          "body": "We reserve the right to modify or replace these Terms at any time. Continued use of the Service after changes constitutes acceptance of the new Terms."
+        },
+        {
+          "heading": "Contact Us",
+          "body": "If you have any questions about these Terms, please contact us at postlen.app."
+        }
+      ]
+    }
   }
 }
