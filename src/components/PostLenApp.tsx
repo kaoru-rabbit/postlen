@@ -135,6 +135,9 @@ export function PostLenApp({ lang }: { lang: string }) {
         <div className="mx-auto max-w-5xl px-4 text-center text-xs text-zinc-400">
           <p>{dict.footer.text}</p>
           <div className="mt-2 flex justify-center gap-4">
+            <Link href={`/${lang}/blog`} className="hover:text-zinc-300 transition-colors">
+              {lang === "ja" ? "ブログ" : "Blog"}
+            </Link>
             <Link href={`/${lang}/privacy`} className="hover:text-zinc-300 transition-colors">
               {dict.legal.privacy.title}
             </Link>
