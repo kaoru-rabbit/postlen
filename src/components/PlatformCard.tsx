@@ -40,7 +40,7 @@ export function PlatformCard({
                 ? "font-semibold text-red-700 dark:text-red-400"
                 : near
                   ? "text-amber-700 dark:text-amber-400"
-                  : "text-zinc-500 dark:text-zinc-400"
+                  : "text-zinc-600 dark:text-zinc-400"
             }`}
           >
             {count} / {platform.maxLength}

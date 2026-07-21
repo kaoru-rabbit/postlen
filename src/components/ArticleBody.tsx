@@ -12,7 +12,7 @@ function BlockView({ block }: { block: Block }) {
           <li key={item} className="flex gap-3 leading-relaxed">
             <span
               aria-hidden="true"
-              className="select-none text-zinc-400 dark:text-zinc-600"
+              className="select-none text-zinc-500 dark:text-zinc-500"
             >
               —
             </span>

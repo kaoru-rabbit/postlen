@@ -1,20 +1,23 @@
 @import "tailwindcss";
 
+/* Light mode is the site default.
+   By default Tailwind's `dark:` variant follows prefers-color-scheme, which
+   made the theme depend on each visitor's OS. Binding it to a `.dark`
+   ancestor instead makes every `dark:` utility inert, since nothing sets that
+   class — so the site always renders light. The dark styles are kept rather
+   than deleted so a theme toggle can be added later by putting `.dark` on
+   <html>, with no restyling needed. */
+@custom-variant dark (&:where(.dark, .dark *));
+
 @layer base {
-  /* Let native UI (scrollbars, form controls, overscroll) follow the theme. */
+  /* Render native UI (scrollbars, form controls, overscroll) light to match. */
   :root {
-    color-scheme: light dark;
+    color-scheme: light;
   }
 
-  /* Page shells set their own background, but body must match so overscroll
-     and any area beyond the shell do not flash white in dark mode. */
+  /* Page shells set their own background; body must match so overscroll areas
+     do not reveal a mismatched colour. */
   body {
     background-color: var(--color-white);
-  }
-
-  @media (prefers-color-scheme: dark) {
-    body {
-      background-color: var(--color-zinc-950);
-    }
   }
 }

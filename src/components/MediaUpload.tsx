@@ -62,7 +62,7 @@ export function MediaUpload({
           </div>
           <button
             onClick={onMediaClear}
-            className="text-xs text-zinc-400 hover:text-red-500 transition-colors"
+            className="text-xs text-zinc-600 hover:text-red-600 transition-colors dark:text-zinc-400 dark:hover:text-red-500"
           >
             {dict.media.clear}
           </button>
@@ -85,10 +85,10 @@ export function MediaUpload({
             ))}
           </div>
           <div className="flex items-center gap-2 shrink-0">
-            <span className="text-xs text-zinc-400">{images.length}/{MAX_IMAGES}</span>
+            <span className="text-xs text-zinc-600 dark:text-zinc-400">{images.length}/{MAX_IMAGES}</span>
             <button
               onClick={onMediaClear}
-              className="text-xs text-zinc-400 hover:text-red-500 transition-colors"
+              className="text-xs text-zinc-600 hover:text-red-600 transition-colors dark:text-zinc-400 dark:hover:text-red-500"
             >
               {dict.media.clear}
             </button>
@@ -116,7 +116,7 @@ export function MediaUpload({
             onChange={handleFileSelect}
             className="hidden"
           />
-          <span className="text-sm text-zinc-400">
+          <span className="text-sm text-zinc-600 dark:text-zinc-400">
             {!hasMedia
               ? dict.media.dropzone
               : `${dict.media.addMore} (${remaining}${dict.media.remaining})`}
