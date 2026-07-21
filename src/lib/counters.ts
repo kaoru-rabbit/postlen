@@ -7,23 +7,29 @@ export interface Platform {
   extras?: (text: string) => { label: string; value: number; max?: number }[];
 }
 
-// X/Twitter weighted character counting
-// Ranges based on twitter-text library: characters outside Basic Latin + Latin Extended
-// count as 2; URLs always count as 23
+// X/Twitter weighted character counting.
+// Weight-1 ranges are taken verbatim from the twitter-text configuration; every
+// code point outside them (CJK, emoji) weighs 2. URLs always count as 23
+// because X rewrites them through t.co.
+const X_SINGLE_WEIGHT_RANGES: [number, number][] = [
+  [0x0000, 0x10ff], // Latin, Greek, Cyrillic, Hebrew, Arabic, Thai, Devanagari, Georgian…
+  [0x2000, 0x200d], // general punctuation and zero-width joiners
+  [0x2010, 0x201f], // dashes and curly quotes
+  [0x2032, 0x2037], // primes
+];
+
 function countXChars(text: string): number {
   const urlRegex = /https?:\/\/\S+/g;
-  let stripped = text.replace(urlRegex, "");
+  const stripped = text.replace(urlRegex, "");
   const urlCount = (text.match(urlRegex) || []).length;
 
   let weight = 0;
   for (const char of stripped) {
     const code = char.codePointAt(0)!;
-    // Basic Latin through Latin Extended-B + some combining marks
-    if (code <= 0x04ff || (code >= 0x1e00 && code <= 0x1eff)) {
-      weight += 1;
-    } else {
-      weight += 2;
-    }
+    const isSingle = X_SINGLE_WEIGHT_RANGES.some(
+      ([start, end]) => code >= start && code <= end
+    );
+    weight += isSingle ? 1 : 2;
   }
   return weight + urlCount * 23;
 }

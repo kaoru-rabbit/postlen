@@ -8,6 +8,8 @@ import { PlatformCard } from "./PlatformCard";
 import { MediaUpload } from "./MediaUpload";
 import { Preview } from "./Preview";
 import { AdUnit } from "./AdUnit";
+import { ArticleBody } from "./ArticleBody";
+import { homeEn, homeJa } from "@/content/home";
 
 export function PostLenApp({ lang }: { lang: string }) {
   const dict = useDictionary();
@@ -50,6 +52,7 @@ export function PostLenApp({ lang }: { lang: string }) {
 
   const otherLang = lang === "ja" ? "en" : "ja";
   const hasMedia = images.length > 0 || video !== null;
+  const content = lang === "ja" ? homeJa : homeEn;
 
   return (
     <div className="min-h-screen bg-white dark:bg-zinc-950">
@@ -130,6 +133,39 @@ export function PostLenApp({ lang }: { lang: string }) {
       </main>
 
       <AdUnit slot="POSTLEN_BOTTOM" className="mx-auto max-w-5xl px-4 mt-12" />
+
+      <section className="mx-auto max-w-2xl px-4 mt-20 text-zinc-600 dark:text-zinc-300">
+        <ArticleBody
+          sections={content.sections}
+          faq={content.faq}
+          faqHeading={content.faqHeading}
+        />
+        <p className="mt-12 text-sm text-zinc-500">
+          {lang === "ja" ? (
+            <>
+              各プラットフォームの詳細は
+              <Link
+                href={`/${lang}/blog`}
+                className="text-zinc-400 hover:text-zinc-200 underline underline-offset-2"
+              >
+                ブログ
+              </Link>
+              で解説しています。
+            </>
+          ) : (
+            <>
+              Detailed guides for each platform are available on the{" "}
+              <Link
+                href={`/${lang}/blog`}
+                className="text-zinc-400 hover:text-zinc-200 underline underline-offset-2"
+              >
+                blog
+              </Link>
+              .
+            </>
+          )}
+        </p>
+      </section>
 
       <footer className="mt-16 border-t border-zinc-200 dark:border-zinc-800 py-6">
         <div className="mx-auto max-w-5xl px-4 text-center text-xs text-zinc-400">
