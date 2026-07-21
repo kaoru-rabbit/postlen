@@ -55,7 +55,7 @@ export default async function ArticlePage({
   };
 
   return (
-    <div className="min-h-screen bg-zinc-950 text-zinc-300">
+    <div className="min-h-screen bg-white text-zinc-700 dark:bg-zinc-950 dark:text-zinc-300">
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd) }}
@@ -63,16 +63,18 @@ export default async function ArticlePage({
       <div className="mx-auto max-w-2xl px-6 py-16">
         <Link
           href={`/${lang}/blog`}
-          className="text-sm text-zinc-500 hover:text-zinc-300 transition-colors"
+          className="inline-block py-2 text-sm text-zinc-600 transition-colors hover:text-zinc-900 dark:text-zinc-400 dark:hover:text-zinc-200"
         >
           ← {isJa ? "ブログに戻る" : "Back to Blog"}
         </Link>
 
-        <h1 className="mt-8 text-3xl font-bold text-zinc-100 leading-tight">
+        <h1 className="mt-6 text-3xl leading-tight font-bold text-zinc-900 dark:text-zinc-100">
           {article.title}
         </h1>
-        <p className="mt-3 text-sm text-zinc-500">{article.date}</p>
-        <p className="mt-6 text-lg leading-relaxed text-zinc-400">
+        <p className="mt-3 text-sm text-zinc-500 dark:text-zinc-400">
+          {article.date}
+        </p>
+        <p className="mt-6 text-lg leading-relaxed text-zinc-600 dark:text-zinc-400">
           {article.description}
         </p>
 
@@ -82,15 +84,15 @@ export default async function ArticlePage({
           faqHeading={isJa ? "よくある質問" : "Frequently asked questions"}
         />
 
-        <div className="mt-16 rounded-lg border border-zinc-800 p-6">
-          <p className="text-zinc-300">
+        <div className="mt-16 rounded-lg border border-zinc-200 bg-zinc-50 p-6 dark:border-zinc-800 dark:bg-transparent">
+          <p className="text-zinc-700 dark:text-zinc-300">
             {isJa
               ? "PostLenなら、この記事で扱ったすべてのプラットフォームの文字数を同時に確認できます。"
               : "PostLen counts your draft against every platform in this article at the same time."}
           </p>
           <Link
             href={`/${lang}`}
-            className="mt-3 inline-block text-sm text-zinc-400 hover:text-zinc-200 transition-colors"
+            className="mt-3 inline-block py-2 text-sm font-medium text-zinc-900 transition-colors hover:text-zinc-600 dark:text-zinc-200 dark:hover:text-white"
           >
             {isJa ? "PostLenを使ってみる →" : "Try PostLen →"}
           </Link>

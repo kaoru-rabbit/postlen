@@ -4,12 +4,16 @@
     "description": "Free character counter for X (Twitter), Instagram, LinkedIn, Threads, YouTube, TikTok, and meta descriptions. See exactly how your post will look before publishing."
   },
   "header": {
-    "subtitle": "SNS Character Counter"
+    "subtitle": "SNS Character Counter",
+    "heading": "Social media character counter",
+    "tagline": "Count one draft against X, Instagram, LinkedIn, Threads, YouTube, TikTok and meta descriptions at the same time — with a live preview of how it will look."
   },
   "editor": {
     "placeholder": "Type or paste your text here...",
     "characters": "characters",
-    "clearAll": "Clear all"
+    "clearAll": "Clear all",
+    "label": "Your post text",
+    "over": "over"
   },
   "images": {
     "dropzone": "Drop images here or click to upload (max 4)",

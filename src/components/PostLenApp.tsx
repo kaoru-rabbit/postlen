@@ -54,18 +54,32 @@ export function PostLenApp({ lang }: { lang: string }) {
   const hasMedia = images.length > 0 || video !== null;
   const content = lang === "ja" ? homeJa : homeEn;
 
+  // Announce only once the selected platform is within 10% of its limit, so
+  // screen readers are not interrupted on every keystroke.
+  const active = platforms.find((p) => p.id === selectedPlatform);
+  const activeCount = active ? active.count(text) : 0;
+  const activeRemaining = active ? active.maxLength - activeCount : 0;
+  const limitStatus =
+    active && text.length > 0 && activeRemaining <= active.maxLength * 0.1
+      ? `${active.name}: ${activeCount} / ${active.maxLength}${
+          activeRemaining < 0 ? `, ${-activeRemaining} ${dict.editor.over}` : ""
+        }`
+      : "";
+
   return (
     <div className="min-h-screen bg-white dark:bg-zinc-950">
       <header className="border-b border-zinc-200 dark:border-zinc-800">
-        <div className="mx-auto max-w-5xl px-4 py-4 flex items-center justify-between">
-          <h1 className="text-xl font-semibold text-zinc-900 dark:text-zinc-100">
+        <div className="mx-auto flex max-w-5xl items-center justify-between px-4 py-4">
+          <span className="text-xl font-semibold text-zinc-900 dark:text-zinc-100">
             PostLen
-          </h1>
+          </span>
           <div className="flex items-center gap-4">
-            <p className="text-sm text-zinc-500">{dict.header.subtitle}</p>
+            <p className="hidden text-sm text-zinc-600 sm:block dark:text-zinc-400">
+              {dict.header.subtitle}
+            </p>
             <Link
               href={`/${otherLang}`}
-              className="text-xs text-zinc-400 hover:text-zinc-600 dark:hover:text-zinc-300 transition-colors border border-zinc-300 dark:border-zinc-700 rounded px-2 py-1"
+              className="rounded border border-zinc-300 px-3 py-2 text-xs text-zinc-700 transition-colors hover:border-zinc-400 hover:text-zinc-900 dark:border-zinc-700 dark:text-zinc-300 dark:hover:text-zinc-100"
             >
               {dict.lang.switch}
             </Link>
@@ -74,20 +88,35 @@ export function PostLenApp({ lang }: { lang: string }) {
       </header>
 
       <main className="mx-auto max-w-5xl px-4 py-8">
+        <h1 className="text-2xl font-bold text-zinc-900 dark:text-zinc-100">
+          {dict.header.heading}
+        </h1>
+        <p className="mt-2 mb-6 max-w-3xl text-zinc-600 dark:text-zinc-400">
+          {dict.header.tagline}
+        </p>
+
+        <label htmlFor="postlen-input" className="sr-only">
+          {dict.editor.label}
+        </label>
         <textarea
+          id="postlen-input"
           value={text}
           onChange={(e) => setText(e.target.value)}
           placeholder={dict.editor.placeholder}
-          className="w-full resize-none rounded-xl border border-zinc-300 dark:border-zinc-700 bg-white dark:bg-zinc-900 p-4 text-base leading-relaxed text-zinc-900 dark:text-zinc-100 placeholder:text-zinc-400 focus:border-zinc-500 dark:focus:border-zinc-400 focus:outline-none focus:ring-1 focus:ring-zinc-500 dark:focus:ring-zinc-400 min-h-[160px]"
+          className="min-h-[160px] w-full resize-none rounded-xl border border-zinc-300 bg-white p-4 text-base leading-relaxed text-zinc-900 placeholder:text-zinc-500 focus:border-zinc-500 focus:ring-1 focus:ring-zinc-500 focus:outline-none dark:border-zinc-700 dark:bg-zinc-900 dark:text-zinc-100 dark:placeholder:text-zinc-400 dark:focus:border-zinc-400 dark:focus:ring-zinc-400"
           rows={6}
         />
 
-        <div className="mt-2 flex items-center justify-between text-xs text-zinc-500">
+        <p aria-live="polite" className="sr-only">
+          {limitStatus}
+        </p>
+
+        <div className="mt-2 flex items-center justify-between text-xs text-zinc-600 dark:text-zinc-400">
           <span>{text.length} {dict.editor.characters}</span>
           {(text.length > 0 || hasMedia) && (
             <button
               onClick={() => { setText(""); handleMediaClear(); }}
-              className="hover:text-zinc-700 dark:hover:text-zinc-300"
+              className="-my-1 px-2 py-2 hover:text-zinc-900 dark:hover:text-zinc-200"
             >
               {dict.editor.clearAll}
             </button>
@@ -134,19 +163,19 @@ export function PostLenApp({ lang }: { lang: string }) {
 
       <AdUnit slot="POSTLEN_BOTTOM" className="mx-auto max-w-5xl px-4 mt-12" />
 
-      <section className="mx-auto max-w-2xl px-4 mt-20 text-zinc-600 dark:text-zinc-300">
+      <section className="mx-auto mt-20 max-w-2xl px-4 text-zinc-700 dark:text-zinc-300">
         <ArticleBody
           sections={content.sections}
           faq={content.faq}
           faqHeading={content.faqHeading}
         />
-        <p className="mt-12 text-sm text-zinc-500">
+        <p className="mt-12 text-sm text-zinc-600 dark:text-zinc-400">
           {lang === "ja" ? (
             <>
               各プラットフォームの詳細は
               <Link
                 href={`/${lang}/blog`}
-                className="text-zinc-400 hover:text-zinc-200 underline underline-offset-2"
+                className="text-zinc-900 underline underline-offset-2 hover:text-zinc-600 dark:text-zinc-200 dark:hover:text-white"
               >
                 ブログ
               </Link>
@@ -157,7 +186,7 @@ export function PostLenApp({ lang }: { lang: string }) {
               Detailed guides for each platform are available on the{" "}
               <Link
                 href={`/${lang}/blog`}
-                className="text-zinc-400 hover:text-zinc-200 underline underline-offset-2"
+                className="text-zinc-900 underline underline-offset-2 hover:text-zinc-600 dark:text-zinc-200 dark:hover:text-white"
               >
                 blog
               </Link>
@@ -167,17 +196,26 @@ export function PostLenApp({ lang }: { lang: string }) {
         </p>
       </section>
 
-      <footer className="mt-16 border-t border-zinc-200 dark:border-zinc-800 py-6">
-        <div className="mx-auto max-w-5xl px-4 text-center text-xs text-zinc-400">
+      <footer className="mt-16 border-t border-zinc-200 py-6 dark:border-zinc-800">
+        <div className="mx-auto max-w-5xl px-4 text-center text-xs text-zinc-600 dark:text-zinc-400">
           <p>{dict.footer.text}</p>
-          <div className="mt-2 flex justify-center gap-4">
-            <Link href={`/${lang}/blog`} className="hover:text-zinc-300 transition-colors">
+          <div className="mt-1 flex justify-center gap-2">
+            <Link
+              href={`/${lang}/blog`}
+              className="px-2 py-2 transition-colors hover:text-zinc-900 dark:hover:text-zinc-200"
+            >
               {lang === "ja" ? "ブログ" : "Blog"}
             </Link>
-            <Link href={`/${lang}/privacy`} className="hover:text-zinc-300 transition-colors">
+            <Link
+              href={`/${lang}/privacy`}
+              className="px-2 py-2 transition-colors hover:text-zinc-900 dark:hover:text-zinc-200"
+            >
               {dict.legal.privacy.title}
             </Link>
-            <Link href={`/${lang}/terms`} className="hover:text-zinc-300 transition-colors">
+            <Link
+              href={`/${lang}/terms`}
+              className="px-2 py-2 transition-colors hover:text-zinc-900 dark:hover:text-zinc-200"
+            >
               {dict.legal.terms.title}
             </Link>
           </div>

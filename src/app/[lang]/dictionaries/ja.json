@@ -4,12 +4,16 @@
     "description": "X (Twitter)、Instagram、LinkedIn、Threads、YouTube、TikTok、メタディスクリプションの無料文字数カウンター。投稿前に実際の見た目を確認できます。"
   },
   "header": {
-    "subtitle": "SNS文字数カウンター"
+    "subtitle": "SNS文字数カウンター",
+    "heading": "SNS文字数カウンター",
+    "tagline": "X・Instagram・LinkedIn・Threads・YouTube・TikTok・メタディスクリプションの文字数を、1つの下書きで同時にカウント。投稿前に実際の見た目も確認できます。"
   },
   "editor": {
     "placeholder": "テキストを入力またはペースト...",
     "characters": "文字",
-    "clearAll": "すべてクリア"
+    "clearAll": "すべてクリア",
+    "label": "投稿するテキスト",
+    "over": "超過"
   },
   "images": {
     "dropzone": "画像をドロップまたはクリックしてアップロード（最大4枚）",
