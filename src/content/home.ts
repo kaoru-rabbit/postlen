@@ -40,7 +40,7 @@ export const homeEn: HomeContent = {
         },
         {
           type: "p",
-          text: "The third column is the one that determines whether anyone reads your post. Most platforms truncate well before their stated limit, and the preview panel above shows where that cut falls.",
+          text: "The third column is the one that determines whether anyone reads your post. Most platforms truncate well before their stated limit, so the number you should write to is usually not the number they advertise.",
         },
       ],
     },
@@ -143,7 +143,7 @@ export const homeJa: HomeContent = {
         },
         {
           type: "p",
-          text: "投稿が読まれるかどうかを決めるのは3列目です。多くのプラットフォームは公表されている上限よりかなり手前で切り捨てており、上のプレビューでその位置を確認できます。",
+          text: "投稿が読まれるかどうかを決めるのは3列目です。多くのプラットフォームは公表されている上限よりかなり手前で切り捨てるため、実際に書くべき目安は公称の上限とは異なります。",
         },
       ],
     },

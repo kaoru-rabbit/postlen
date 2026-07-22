@@ -42,7 +42,7 @@ export const howToUseEn: Article = {
         },
         {
           type: "p",
-          text: "The Instagram card additionally tracks hashtags against the 30-per-post limit, since hashtags are frequently the constraint that bites before the 2,200-character caption limit does.",
+          text: "The Instagram and Threads cards additionally track hashtags. Instagram cut its per-post cap from 30 to five in December 2025, and Threads allows a single topic tag, so on both platforms the hashtag count bites long before the caption limit does.",
         },
       ],
     },
@@ -51,11 +51,11 @@ export const howToUseEn: Article = {
       blocks: [
         {
           type: "p",
-          text: "Selecting a platform card switches the preview to that platform's layout — profile position, username treatment, timestamp and text formatting. The purpose is not decoration. Most platforms truncate posts well before their stated limit, and the preview is where that becomes visible.",
+          text: "Selecting a platform card switches the preview to that platform's layout — profile position, username treatment, timestamp and text formatting. The purpose is not decoration: the same sentence sits differently in a Threads card than in a LinkedIn post, and seeing it in place catches awkward line breaks and orphaned words that a plain textarea hides.",
         },
         {
           type: "table",
-          headers: ["Platform", "Limit", "Where the preview shows truncation"],
+          headers: ["Platform", "Limit", "Visible before truncation"],
           rows: [
             ["Instagram", "2,200", "~125 characters"],
             ["LinkedIn", "3,000", "~140 characters"],
@@ -65,7 +65,7 @@ export const howToUseEn: Article = {
         },
         {
           type: "p",
-          text: "Seeing where a caption is cut off tends to change how it is written more than knowing the number does.",
+          text: "PostLen does not yet mark the cut-off point inside the preview, so treat the figures above as the targets to write to.",
         },
       ],
     },
@@ -181,7 +181,7 @@ export const howToUseJa: Article = {
         },
         {
           type: "p",
-          text: "Instagramのカードには、1投稿30個というハッシュタグの上限に対するカウントも表示されます。2,200文字のキャプション上限より先に、ハッシュタグの数が制約になることが多いためです。",
+          text: "InstagramとThreadsのカードにはハッシュタグのカウントも表示されます。Instagramは2025年12月に1投稿あたりの上限を30個から5個へ引き下げ、Threadsは1投稿1個までです。どちらもキャプションの文字数より先にハッシュタグ数が制約になります。",
         },
       ],
     },
@@ -190,11 +190,11 @@ export const howToUseJa: Article = {
       blocks: [
         {
           type: "p",
-          text: "プラットフォームのカードを選ぶと、プレビューがそのプラットフォームのレイアウトに切り替わります。プロフィール画像の位置、ユーザーネームの扱い、タイムスタンプ、テキストの整形が再現されます。これは装飾のためではありません。多くのプラットフォームは公表されている上限よりかなり手前で投稿を切り捨てており、それが目に見える形になるのがプレビューです。",
+          text: "プラットフォームのカードを選ぶと、プレビューがそのプラットフォームのレイアウトに切り替わります。プロフィール画像の位置、ユーザーネームの扱い、タイムスタンプ、テキストの整形が再現されます。これは装飾のためではありません。同じ一文でもThreadsのカードとLinkedInの投稿では収まり方が違い、実際の枠に流し込むことで、テキストエリアでは見えない不自然な改行や行末に取り残された単語に気づけます。",
         },
         {
           type: "table",
-          headers: ["プラットフォーム", "上限", "プレビューで切り捨てが見える位置"],
+          headers: ["プラットフォーム", "上限", "切り捨てまでの表示"],
           rows: [
             ["Instagram", "2,200", "約125文字"],
             ["LinkedIn", "3,000", "約140文字"],
@@ -204,7 +204,7 @@ export const howToUseJa: Article = {
         },
         {
           type: "p",
-          text: "どこで切れるかを目で見ることは、数字を知ることよりも書き方を変える効果があります。",
+          text: "PostLenはプレビュー内に切り捨て位置を表示する機能をまだ持っていません。上の数値を、書く際の目安として使ってください。",
         },
       ],
     },
