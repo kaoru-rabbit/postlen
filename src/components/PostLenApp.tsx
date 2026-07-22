@@ -9,6 +9,7 @@ import { MediaUpload } from "./MediaUpload";
 import { Preview } from "./Preview";
 import { AdUnit } from "./AdUnit";
 import { ArticleBody } from "./ArticleBody";
+import { BrandLockup } from "./BrandMark";
 import { homeEn, homeJa } from "@/content/home";
 
 export function PostLenApp({ lang }: { lang: string }) {
@@ -70,9 +71,7 @@ export function PostLenApp({ lang }: { lang: string }) {
     <div className="min-h-screen bg-white dark:bg-zinc-950">
       <header className="border-b border-zinc-200 dark:border-zinc-800">
         <div className="mx-auto flex max-w-5xl items-center justify-between px-4 py-4">
-          <span className="text-xl font-semibold text-zinc-900 dark:text-zinc-100">
-            PostLen
-          </span>
+          <BrandLockup />
           <div className="flex items-center gap-4">
             <p className="hidden text-sm text-zinc-600 sm:block dark:text-zinc-400">
               {dict.header.subtitle}
