@@ -52,7 +52,7 @@ export const youtubeEn: Article = {
             "Emoji count as 1 in most cases, though certain composed emoji (skin-tone or family sequences) are built from multiple code points and can cost more than they appear to.",
             "Spaces, line breaks and punctuation all count as 1.",
             "URLs count their literal length. YouTube does not shorten links, so a long tracking URL genuinely consumes 100+ characters of your description.",
-            "Hashtags count toward the description limit, and only the first three appear above the video title.",
+            "Hashtags count toward the description limit. YouTube surfaces up to three of them beside the video title, choosing the ones it judges most engaging rather than the first three you wrote.",
           ],
         },
         {
@@ -116,7 +116,7 @@ export const youtubeEn: Article = {
         },
         {
           type: "p",
-          text: "One detail that catches people out: only the first three hashtags in a description are displayed above the video title, and adding more than 15 causes YouTube to ignore all of them. Restraint here is not a stylistic preference but a functional requirement.",
+          text: "Two details catch people out. YouTube displays up to three hashtags beside the video title, but it selects the ones it considers most engaging — you cannot choose them by ordering. And exceeding 60 hashtags on a video or playlist makes YouTube ignore every hashtag on that content, which its documentation also warns can lead to removal from search results.",
         },
       ],
     },
@@ -179,7 +179,7 @@ export const youtubeEn: Article = {
     },
     {
       q: "How many hashtags should a YouTube description contain?",
-      a: "Three or fewer are displayed above the video title. Using more than 15 causes YouTube to ignore every hashtag on the video, so a small, relevant set is the only configuration that works reliably.",
+      a: "Up to three appear beside the video title, chosen by YouTube as the most engaging rather than by the order you wrote them. The hard limit is 60: pass it and YouTube ignores every hashtag on that video. A small, relevant set remains the sensible approach.",
     },
     {
       q: "Do YouTube Shorts have different character limits?",
@@ -240,7 +240,7 @@ export const youtubeJa: Article = {
             "絵文字は多くの場合1文字ですが、肌色や家族の絵文字など複数のコードポイントで構成されるものは、見た目より多くの文字数を消費することがあります。",
             "スペース、改行、記号もすべて1文字としてカウントされます。",
             "URLは実際の文字数がそのまま加算されます。YouTubeはリンクを短縮しないため、長いトラッキングURLは説明文の100文字以上を実際に消費します。",
-            "ハッシュタグは説明文の文字数に含まれ、動画タイトルの上に表示されるのは最初の3つだけです。",
+            "ハッシュタグは説明文の文字数に含まれます。タイトル横に表示されるのは最大3つですが、先頭の3つではなくYouTubeが「最もエンゲージメントが高い」と判断したものが選ばれます。",
           ],
         },
         {
@@ -304,7 +304,7 @@ export const youtubeJa: Article = {
         },
         {
           type: "p",
-          text: "見落とされがちな点として、説明文中のハッシュタグはタイトル上部に最初の3つしか表示されず、15個を超えるとYouTubeはその動画のハッシュタグをすべて無視します。ここでの抑制は好みの問題ではなく、機能上の要件です。",
+          text: "見落とされがちな点が2つあります。タイトル横に表示されるハッシュタグは最大3つですが、どれが選ばれるかは YouTube がエンゲージメントを基に判断するため、記述の順番では指定できません。そして1つの動画または再生リストに60個を超えるハッシュタグがあると、YouTube はそのコンテンツのハッシュタグをすべて無視します。公式ヘルプは検索結果からの削除もありうると警告しています。",
         },
       ],
     },
@@ -367,7 +367,7 @@ export const youtubeJa: Article = {
     },
     {
       q: "説明文のハッシュタグはいくつ付けるべきですか？",
-      a: "タイトル上部に表示されるのは3つまでです。15個を超えるとYouTubeはその動画のハッシュタグをすべて無視するため、確実に機能するのは関連性の高い少数に絞る方法だけです。",
+      a: "タイトル横に表示されるのは最大3つで、記述順ではなく YouTube がエンゲージメントを基に選びます。上限は60個で、これを超えるとその動画のハッシュタグはすべて無視されます。実務上は関連性の高い少数に絞るのが妥当です。",
     },
     {
       q: "YouTubeショートの文字数制限は通常の動画と違いますか？",

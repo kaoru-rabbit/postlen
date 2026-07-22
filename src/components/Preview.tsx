@@ -2,6 +2,34 @@ import type { Platform } from "@/lib/counters";
 import { platforms } from "@/lib/counters";
 import { useDictionary } from "@/lib/i18n";
 
+// Hashtags render in a link colour on every platform except Threads, where the
+// text stays the same colour as the body, and meta descriptions, which appear
+// as plain text in search results.
+const HASHTAG_RE = /(#[^\s#]+)/g;
+
+function PostText({
+  text,
+  hashtagLink = true,
+}: {
+  text: string;
+  hashtagLink?: boolean;
+}) {
+  if (!hashtagLink || !text.includes("#")) return <>{text}</>;
+  return (
+    <>
+      {text.split(HASHTAG_RE).map((part, i) =>
+        part.startsWith("#") && part.length > 1 ? (
+          <span key={i} className="text-sky-700 dark:text-sky-400">
+            {part}
+          </span>
+        ) : (
+          part
+        )
+      )}
+    </>
+  );
+}
+
 function VideoPlayer({ src, className }: { src: string; className?: string }) {
   return (
     <video
@@ -193,7 +221,7 @@ function XPreview({ text, images, video }: MediaProps) {
             <span className="text-sm text-zinc-500">@{dict.preview.username} · {dict.preview.now}</span>
           </div>
           <p className="mt-1 text-[15px] leading-relaxed text-zinc-900 dark:text-zinc-100 whitespace-pre-wrap break-words">
-            {text || dict.preview.xPlaceholder}
+            {text ? <PostText text={text} /> : dict.preview.xPlaceholder}
           </p>
           {media && <div className="mt-3">{media}</div>}
         </div>
@@ -223,7 +251,7 @@ function InstagramPreview({ text, images, video }: MediaProps) {
       <div className="p-4">
         <p className="text-sm leading-relaxed text-zinc-900 dark:text-zinc-100 whitespace-pre-wrap break-words">
           <span className="font-semibold">{dict.preview.username}</span>{" "}
-          {text || dict.preview.instagramPlaceholder}
+          {text ? <PostText text={text} /> : dict.preview.instagramPlaceholder}
         </p>
       </div>
     </div>
@@ -244,7 +272,7 @@ function LinkedInPreview({ text, images, video }: MediaProps) {
         </div>
       </div>
       <p className="text-sm leading-relaxed text-zinc-900 dark:text-zinc-100 whitespace-pre-wrap break-words">
-        {text || dict.preview.linkedinPlaceholder}
+        {text ? <PostText text={text} /> : dict.preview.linkedinPlaceholder}
       </p>
       {video ? (
         <div className="-mx-4 -mb-4 mt-3 overflow-hidden rounded-b-xl">
@@ -273,7 +301,7 @@ function ThreadsPreview({ text, images, video }: MediaProps) {
             <span className="text-xs text-zinc-500">{dict.preview.timeAgo}</span>
           </div>
           <p className="mt-1 text-sm leading-relaxed text-zinc-900 dark:text-zinc-100 whitespace-pre-wrap break-words">
-            {text || dict.preview.threadsPlaceholder}
+            {text ? <PostText text={text} hashtagLink={false} /> : dict.preview.threadsPlaceholder}
           </p>
           {video ? (
             <div className="mt-2 overflow-hidden rounded-lg border border-zinc-200 dark:border-zinc-700">
@@ -303,7 +331,11 @@ function GenericPreview({
         {dict.preview.previewLabel.replace("{platform}", platform.name)}
       </div>
       <p className="text-sm leading-relaxed text-zinc-900 dark:text-zinc-100 whitespace-pre-wrap break-words">
-        {text || dict.preview.genericPlaceholder.replace("{platform}", platform.name)}
+        {text ? (
+          <PostText text={text} hashtagLink={platform.id !== "meta-desc"} />
+        ) : (
+          dict.preview.genericPlaceholder.replace("{platform}", platform.name)
+        )}
       </p>
       {video ? (
         <div className="mt-3 overflow-hidden rounded-lg border border-zinc-200 dark:border-zinc-700">

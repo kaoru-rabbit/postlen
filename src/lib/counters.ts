@@ -52,7 +52,8 @@ export const platforms: Platform[] = [
     icon: "📷",
     maxLength: 2200,
     count: (t) => t.length,
-    extras: (t) => [{ label: "Hashtags", value: countHashtags(t), max: 30 }],
+    // Instagram cut the per-post cap from 30 to 5, rolled out from Dec 2025.
+    extras: (t) => [{ label: "Hashtags", value: countHashtags(t), max: 5 }],
   },
   {
     id: "linkedin",
@@ -67,6 +68,8 @@ export const platforms: Platform[] = [
     icon: "@",
     maxLength: 500,
     count: (t) => t.length,
+    // Threads allows a single topic tag per post, unlike every other platform.
+    extras: (t) => [{ label: "Hashtags", value: countHashtags(t), max: 1 }],
   },
   {
     id: "youtube-title",

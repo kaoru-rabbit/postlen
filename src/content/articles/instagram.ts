@@ -5,7 +5,7 @@ export const instagramEn: Article = {
   lang: "en",
   title: "Instagram Character Limits 2026: Captions, Bio, Hashtags & Reels",
   description:
-    "All Instagram character limits — 2,200 for captions, 150 for bio, 30 hashtags — plus the 125-character cutoff that decides whether anyone reads the rest.",
+    "All Instagram character limits — 2,200 for captions, 150 for bio, and the 5-hashtag cap introduced in December 2025 — plus the 125-character cutoff that decides whether anyone reads the rest.",
   date: "2026-07-02",
   sections: [
     {
@@ -20,7 +20,7 @@ export const instagramEn: Article = {
             ["Username", "30 characters", "Fully shown"],
             ["Name field", "30 characters", "Fully shown"],
             ["Comment", "2,200 characters", "~150 characters"],
-            ["Hashtags per post", "30", "First 3 in preview"],
+            ["Hashtags per post", "5 (was 30)", "First 3 in preview"],
             ["Hashtags per Story", "10", "—"],
             ["Alt text", "100 characters", "Not displayed visually"],
             ["Images per carousel", "20", "—"],
@@ -78,11 +78,11 @@ export const instagramEn: Article = {
       ],
     },
     {
-      heading: "Hashtags: 30 allowed, far fewer advisable",
+      heading: "Hashtags: five, down from thirty",
       blocks: [
         {
           type: "p",
-          text: "A post accepts up to 30 hashtags and a Story up to 10. Instagram's own published guidance recommends three to five, and exceeding the recommendation has no mechanical penalty but tends to correlate with lower engagement, since large hashtag blocks are visually disruptive and signal low-effort posting.",
+          text: "Instagram cut the per-post limit from 30 hashtags to five, rolling the change out from December 2025. This is not a style recommendation but an enforced cap: posts carrying more than five are reported to stop being surfaced in Explore, in hashtag browse pages and in Reels recommendations. Long hashtag blocks, which were standard practice for years, now actively cost reach.",
         },
         {
           type: "p",
@@ -129,7 +129,7 @@ export const instagramEn: Article = {
     },
     {
       q: "How many hashtags can I use on Instagram?",
-      a: "Up to 30 per post and 10 per Story, though Instagram recommends three to five. Hashtags count toward the caption's 2,200-character limit.",
+      a: "Five per post. Instagram reduced the cap from 30 starting in December 2025, and going over it is reported to remove the post from Explore, hashtag pages and Reels recommendations. Hashtags count toward the caption's 2,200-character limit.",
     },
     {
       q: "Do Japanese characters count as two on Instagram?",
@@ -151,7 +151,7 @@ export const instagramJa: Article = {
   lang: "ja",
   title: "Instagram文字数制限 2026：キャプション・プロフィール・ハッシュタグ・リール",
   description:
-    "Instagramの文字数制限を網羅。キャプション2,200文字、プロフィール150文字、ハッシュタグ30個に加え、続きを読まれるかを左右する125文字の境界を解説します。",
+    "Instagramの文字数制限を網羅。キャプション2,200文字、プロフィール150文字、2025年12月に5個へ縮小されたハッシュタグ上限に加え、続きを読まれるかを左右する125文字の境界を解説します。",
   date: "2026-07-02",
   sections: [
     {
@@ -166,7 +166,7 @@ export const instagramJa: Article = {
             ["ユーザーネーム", "30文字", "全文表示"],
             ["名前", "30文字", "全文表示"],
             ["コメント", "2,200文字", "約150文字"],
-            ["1投稿のハッシュタグ", "30個", "プレビューでは3個"],
+            ["1投稿のハッシュタグ", "5個（旧30個）", "プレビューでは3個"],
             ["ストーリーズのハッシュタグ", "10個", "—"],
             ["代替テキスト", "100文字", "画面には表示されない"],
             ["カルーセルの画像", "20枚", "—"],
@@ -224,11 +224,11 @@ export const instagramJa: Article = {
       ],
     },
     {
-      heading: "ハッシュタグ：30個まで可能だが推奨はもっと少ない",
+      heading: "ハッシュタグ：30個から5個へ縮小",
       blocks: [
         {
           type: "p",
-          text: "1投稿につき30個、ストーリーズには10個までハッシュタグを付けられます。Instagram自身が公開している推奨は3〜5個です。それを超えても仕組み上のペナルティはありませんが、エンゲージメントの低下と相関する傾向があります。大量のハッシュタグの塊は視覚的に読みにくく、手間をかけていない投稿という印象を与えるためです。",
+          text: "Instagramは1投稿あたりのハッシュタグ上限を30個から5個へ引き下げ、2025年12月から展開しました。これは推奨ではなく実際に適用される制限で、5個を超える投稿はExplore（発見タブ）、ハッシュタグの一覧ページ、リールのレコメンドに表示されなくなると報告されています。長年一般的だった大量のハッシュタグの羅列は、現在ではリーチを損なう行為になりました。",
         },
         {
           type: "p",
@@ -275,7 +275,7 @@ export const instagramJa: Article = {
     },
     {
       q: "ハッシュタグはいくつまで使えますか？",
-      a: "1投稿30個、ストーリーズ10個までですが、Instagramの推奨は3〜5個です。ハッシュタグはキャプションの2,200文字に含まれます。",
+      a: "1投稿5個までです。2025年12月から30個より縮小されました。超過するとExplore、ハッシュタグページ、リールのレコメンドから外れると報告されています。ハッシュタグはキャプションの2,200文字に含まれます。",
     },
     {
       q: "Instagramで日本語は2文字としてカウントされますか？",
