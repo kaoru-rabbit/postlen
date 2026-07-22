@@ -6,7 +6,9 @@
   "header": {
     "subtitle": "SNS Character Counter",
     "heading": "Social media character counter",
-    "tagline": "Count one draft against X, Instagram, LinkedIn, Threads, YouTube, TikTok and meta descriptions at the same time — with a live preview of how it will look."
+    "tagline": "Count one draft against X, Instagram, LinkedIn, Threads, YouTube, TikTok and meta descriptions at the same time — with a live preview of how it will look.",
+    "badgePrivacy": "Nothing sent — your text stays on your device",
+    "badgeAccuracy": "X weighted counting: CJK and emoji = 2, URLs = 23"
   },
   "editor": {
     "placeholder": "Type or paste your text here...",
@@ -50,6 +52,9 @@
   },
   "footer": {
     "text": "PostLen — Free SNS character counter with live preview"
+  },
+  "ads": {
+    "label": "Advertisement"
   },
   "consent": {
     "message": "We use cookies to analyze site usage and improve your experience.",

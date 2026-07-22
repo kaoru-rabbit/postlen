@@ -68,8 +68,8 @@ export function PostLenApp({ lang }: { lang: string }) {
       : "";
 
   return (
-    <div className="min-h-screen bg-white dark:bg-zinc-950">
-      <header className="border-b border-zinc-200 dark:border-zinc-800">
+    <div className="min-h-screen bg-zinc-50 dark:bg-zinc-950">
+      <header className="border-b border-zinc-200 bg-white dark:border-zinc-800 dark:bg-zinc-950">
         <div className="mx-auto flex max-w-5xl items-center justify-between px-4 py-4">
           <BrandLockup />
           <div className="flex items-center gap-4">
@@ -87,12 +87,23 @@ export function PostLenApp({ lang }: { lang: string }) {
       </header>
 
       <main className="mx-auto max-w-5xl px-4 py-8">
-        <h1 className="text-2xl font-bold text-zinc-900 dark:text-zinc-100">
+        <h1 className="text-3xl font-bold tracking-tight text-zinc-900 sm:text-4xl dark:text-zinc-100">
           {dict.header.heading}
         </h1>
-        <p className="mt-2 mb-6 max-w-3xl text-zinc-600 dark:text-zinc-400">
+        <p className="mt-3 max-w-3xl text-zinc-600 dark:text-zinc-400">
           {dict.header.tagline}
         </p>
+
+        <div className="mt-4 mb-6 flex flex-wrap gap-2">
+          {[dict.header.badgePrivacy, dict.header.badgeAccuracy].map((label) => (
+            <span
+              key={label}
+              className="rounded-full bg-brand-50 px-3 py-1 text-xs text-brand-800 dark:bg-zinc-800 dark:text-zinc-300"
+            >
+              {label}
+            </span>
+          ))}
+        </div>
 
         <label htmlFor="postlen-input" className="sr-only">
           {dict.editor.label}
@@ -160,7 +171,11 @@ export function PostLenApp({ lang }: { lang: string }) {
         </div>
       </main>
 
-      <AdUnit slot="POSTLEN_BOTTOM" className="mx-auto max-w-5xl px-4 mt-12" />
+      <AdUnit
+        slot="POSTLEN_BOTTOM"
+        className="mx-auto mt-12 max-w-5xl px-4"
+        label={dict.ads.label}
+      />
 
       <section className="mx-auto mt-20 max-w-2xl px-4 text-zinc-700 dark:text-zinc-300">
         <ArticleBody
@@ -174,7 +189,7 @@ export function PostLenApp({ lang }: { lang: string }) {
               各プラットフォームの詳細は
               <Link
                 href={`/${lang}/blog`}
-                className="text-zinc-900 underline underline-offset-2 hover:text-zinc-600 dark:text-zinc-200 dark:hover:text-white"
+                className="text-brand-700 underline underline-offset-2 hover:text-brand-800 dark:text-zinc-200 dark:hover:text-white"
               >
                 ブログ
               </Link>
@@ -185,7 +200,7 @@ export function PostLenApp({ lang }: { lang: string }) {
               Detailed guides for each platform are available on the{" "}
               <Link
                 href={`/${lang}/blog`}
-                className="text-zinc-900 underline underline-offset-2 hover:text-zinc-600 dark:text-zinc-200 dark:hover:text-white"
+                className="text-brand-700 underline underline-offset-2 hover:text-brand-800 dark:text-zinc-200 dark:hover:text-white"
               >
                 blog
               </Link>

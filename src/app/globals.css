@@ -9,15 +9,27 @@
    <html>, with no restyling needed. */
 @custom-variant dark (&:where(.dark, .dark *));
 
+/* Teal, chosen by elimination: blue collides with the social platforms, green
+   is reserved by the progress bar's "within limit" state, red and amber by its
+   warning states, and violet reads as an AI tool. Contrast against white:
+   brand-700 5.43:1 (text), brand-600 3.74:1 (non-text only). */
+@theme {
+  --color-brand-50: #f0fdfa;
+  --color-brand-100: #ccfbf1;
+  --color-brand-600: #0d9488;
+  --color-brand-700: #0f766e;
+  --color-brand-800: #115e59;
+}
+
 @layer base {
   /* Render native UI (scrollbars, form controls, overscroll) light to match. */
   :root {
     color-scheme: light;
   }
 
-  /* Page shells set their own background; body must match so overscroll areas
-     do not reveal a mismatched colour. */
+  /* The page is the lowest surface; cards, the editor and previews sit on it
+     in white. Body must match so overscroll does not reveal a lighter band. */
   body {
-    background-color: var(--color-white);
+    background-color: var(--color-zinc-50);
   }
 }

@@ -182,7 +182,7 @@ function XPreview({ text, images, video }: MediaProps) {
   const dict = useDictionary();
   const media = <MediaBlock video={video} images={images} ImageGrid={XImageGrid} videoClass="aspect-video" />;
   return (
-    <div className="rounded-xl border border-zinc-200 dark:border-zinc-700 p-4">
+    <div className="rounded-xl border border-zinc-200 bg-white p-4 dark:border-zinc-700 dark:bg-zinc-900">
       <div className="flex gap-3">
         <div className="h-10 w-10 shrink-0 rounded-full bg-zinc-300 dark:bg-zinc-600" />
         <div className="min-w-0 flex-1">
@@ -206,7 +206,7 @@ function InstagramPreview({ text, images, video }: MediaProps) {
   const dict = useDictionary();
   const hasMedia = images.length > 0 || video;
   return (
-    <div className="rounded-xl border border-zinc-200 dark:border-zinc-700 overflow-hidden">
+    <div className="overflow-hidden rounded-xl border border-zinc-200 bg-white dark:border-zinc-700 dark:bg-zinc-900">
       <div className="flex items-center gap-2.5 px-4 py-3">
         <div className="h-8 w-8 rounded-full bg-zinc-300 dark:bg-zinc-600" />
         <span className="text-sm font-semibold text-zinc-900 dark:text-zinc-100">
@@ -233,7 +233,7 @@ function InstagramPreview({ text, images, video }: MediaProps) {
 function LinkedInPreview({ text, images, video }: MediaProps) {
   const dict = useDictionary();
   return (
-    <div className="rounded-xl border border-zinc-200 dark:border-zinc-700 p-4">
+    <div className="rounded-xl border border-zinc-200 bg-white p-4 dark:border-zinc-700 dark:bg-zinc-900">
       <div className="flex items-center gap-3 mb-3">
         <div className="h-12 w-12 rounded-full bg-zinc-300 dark:bg-zinc-600" />
         <div>
@@ -262,7 +262,7 @@ function LinkedInPreview({ text, images, video }: MediaProps) {
 function ThreadsPreview({ text, images, video }: MediaProps) {
   const dict = useDictionary();
   return (
-    <div className="rounded-xl border border-zinc-200 dark:border-zinc-700 p-4">
+    <div className="rounded-xl border border-zinc-200 bg-white p-4 dark:border-zinc-700 dark:bg-zinc-900">
       <div className="flex gap-3">
         <div className="h-9 w-9 shrink-0 rounded-full bg-zinc-300 dark:bg-zinc-600" />
         <div className="min-w-0 flex-1">
@@ -298,7 +298,7 @@ function GenericPreview({
 }: MediaProps & { platform: Platform }) {
   const dict = useDictionary();
   return (
-    <div className="rounded-xl border border-zinc-200 dark:border-zinc-700 p-4">
+    <div className="rounded-xl border border-zinc-200 bg-white p-4 dark:border-zinc-700 dark:bg-zinc-900">
       <div className="mb-2 text-xs font-medium text-zinc-500 uppercase tracking-wide">
         {dict.preview.previewLabel.replace("{platform}", platform.name)}
       </div>

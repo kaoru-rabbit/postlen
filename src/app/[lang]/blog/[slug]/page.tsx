@@ -55,7 +55,7 @@ export default async function ArticlePage({
   };
 
   return (
-    <div className="min-h-screen bg-white text-zinc-700 dark:bg-zinc-950 dark:text-zinc-300">
+    <div className="min-h-screen bg-zinc-50 text-zinc-700 dark:bg-zinc-950 dark:text-zinc-300">
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd) }}
@@ -84,7 +84,7 @@ export default async function ArticlePage({
           faqHeading={isJa ? "よくある質問" : "Frequently asked questions"}
         />
 
-        <div className="mt-16 rounded-lg border border-zinc-200 bg-zinc-50 p-6 dark:border-zinc-800 dark:bg-transparent">
+        <div className="mt-16 rounded-lg border border-zinc-200 bg-white p-6 dark:border-zinc-800 dark:bg-transparent">
           <p className="text-zinc-700 dark:text-zinc-300">
             {isJa
               ? "PostLenなら、この記事で扱ったすべてのプラットフォームの文字数を同時に確認できます。"
@@ -92,7 +92,7 @@ export default async function ArticlePage({
           </p>
           <Link
             href={`/${lang}`}
-            className="mt-3 inline-block py-2 text-sm font-medium text-zinc-900 transition-colors hover:text-zinc-600 dark:text-zinc-200 dark:hover:text-white"
+            className="mt-3 inline-block py-2 text-sm font-medium text-brand-700 transition-colors hover:text-brand-800 dark:text-zinc-200 dark:hover:text-white"
           >
             {isJa ? "PostLenを使ってみる →" : "Try PostLen →"}
           </Link>

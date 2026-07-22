@@ -17,7 +17,7 @@ export function LegalPage({
   backLabel: string;
 }) {
   return (
-    <div className="min-h-screen bg-white text-zinc-700 dark:bg-zinc-950 dark:text-zinc-300">
+    <div className="min-h-screen bg-zinc-50 text-zinc-700 dark:bg-zinc-950 dark:text-zinc-300">
       <div className="mx-auto max-w-2xl px-6 py-16">
         <Link
           href={`/${lang}`}

@@ -6,7 +6,9 @@
   "header": {
     "subtitle": "SNS文字数カウンター",
     "heading": "SNS文字数カウンター",
-    "tagline": "X・Instagram・LinkedIn・Threads・YouTube・TikTok・メタディスクリプションの文字数を、1つの下書きで同時にカウント。投稿前に実際の見た目も確認できます。"
+    "tagline": "X・Instagram・LinkedIn・Threads・YouTube・TikTok・メタディスクリプションの文字数を、1つの下書きで同時にカウント。投稿前に実際の見た目も確認できます。",
+    "badgePrivacy": "通信ゼロ — テキストは端末から出ません",
+    "badgeAccuracy": "Xの重み付けカウント対応：日本語・絵文字=2、URL=23"
   },
   "editor": {
     "placeholder": "テキストを入力またはペースト...",
@@ -50,6 +52,9 @@
   },
   "footer": {
     "text": "PostLen — 無料SNS文字数カウンター（ライブプレビュー付き）"
+  },
+  "ads": {
+    "label": "広告"
   },
   "consent": {
     "message": "サイトの利用状況を分析し、体験を向上させるためにCookieを使用しています。",
